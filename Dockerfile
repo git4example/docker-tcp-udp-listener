@@ -1,4 +1,4 @@
-FROM gliderlabs/alpine:3.3
+FROM alpine
 
 RUN apk add --update \
     python \
