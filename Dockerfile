@@ -1,5 +1,4 @@
 FROM gliderlabs/alpine:3.3
-MAINTAINER	mendhak <docker@mendhak.com>
 
 RUN apk add --update \
     python \
@@ -14,8 +13,12 @@ RUN pip install --upgrade pip
 ENV UDPPORT 5005
 ENV TCPPORT 5000
 
-ADD udplistener.py /udplistener.py
-CMD ["python", "-u","/udplistener.py"]
+ADD udplistener.py /tcpudplistener.py
+ADD tcpclient.py /tcpclient.py
+CMD ["python", "-u","/tcpudplistener.py"]
 
 EXPOSE ${UDPPORT}
 EXPOSE ${UDPPORT}/udp
+
+EXPOSE ${TCPPORT}
+EXPOSE ${TCPPORT}/tcp
