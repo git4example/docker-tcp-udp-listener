@@ -13,7 +13,7 @@ RUN pip install --upgrade pip
 ENV UDPPORT 5005
 ENV TCPPORT 5000
 
-ADD udplistener.py /tcpudplistener.py
+ADD tcpudplistener.py /tcpudplistener.py
 ADD tcpclient.py /tcpclient.py
 CMD ["python", "-u","/tcpudplistener.py"]
 
